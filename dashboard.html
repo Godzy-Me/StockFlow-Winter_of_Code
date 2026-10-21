@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>StockFlow | Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="nav">
+  <h2>StockFlow</h2>
+  <div>
+    <a href="#" id="navInventory">Inventory</a>
+    <a href="#" id="navAnalytics">Analytics</a>
+    <a href="#" id="navSuppliers">Suppliers</a>
+    <a href="#" id="navReliability">Reliability</a>
+    <a href="#" id="navLogs">Logs</a>
+    <a href="#" onclick="logout()">Logout</a> <!--triggers js to do-->
+  </div>
+</div>
+
+<div class="container">
+
+  <!--INVENTORY-->
+  <div class="card" id="inventorySection">
+    <h3>Add / Update Stock</h3>
+
+    <input id="itemName" placeholder="Item name">
+    <input id="category" placeholder="Category">
+    <input id="quantity" type="number" placeholder="Quantity">
+    <input id="warehouse" placeholder="Warehouse name">
+    <input id="supplier" placeholder="Supplier name">
+
+    <select id="type">
+      <option value="IN">Stock IN</option>
+      <option value="OUT">Stock OUT</option>
+    </select>
+
+    <button id="addItemBtn">Submit</button>
+
+    <h3 style="margin-top:20px;">Inventory</h3>
+    <input id="warehouseFilter" placeholder="Filter by warehouse">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Category</th>
+          <th>Warehouse</th>
+          <th>Quantity</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="inventoryList"></tbody>
+    </table>
+  </div>
+
+  <!--ANALYTICS-->
+  <div class="card" id="analyticsSection" style="display:none;">
+    <h3>Stock Movement per Item</h3>
+    <div style="height:320px;">
+      <canvas id="stockChart"></canvas> <!--jS draws into html-->
+    </div>
+  </div>
+
+  <!--SUPPLIERS-->
+  <div class="card" id="supplierSection" style="display:none;">
+    <h3>Supplier Performance</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Supplier</th>
+          <th>Stock IN</th>
+          <th>Stock OUT</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="supplierScores"></tbody>
+    </table>
+  </div>
+
+  <!--RELIABILITY -->
+  <div class="card" id="reliabilitySection" style="display:none;">
+    <h3>Supplier Reliability Review</h3>
+    <label>Supplier</label>
+    <select id="reviewSupplier"></select>
+
+    <label>Product Quality (1–5)</label>
+    <input type="number" id="productQuality" min="1" max="5">
+    <label>Service Quality (1–5)</label>
+    <input type="number" id="serviceQuality" min="1" max="5">
+
+    <label>Customer Feedback (1–5)</label>
+    <input type="number" id="feedbackQuality" min="1" max="5">
+
+    
+    <label>Remarks</label>
+    <textarea id="reviewRemarks" rows="3"></textarea>
+
+    <button id="submitReviewBtn">Submit Review</button>
+
+    <h3 style="margin-top:30px;">Review History</h3>
+
+    <div class="reliability-history">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Product</th>
+            <th>Service</th>
+            <th>Feedback</th>
+            <th>Remarks</th>
+            <th>By</th>
+            <th>Date</th>
+            <th>Action</th> 
+          </tr>
+        </thead>
+        <tbody id="reviewHistory"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!--LOGS-->
+  <div class="card" id="logsSection" style="display:none;">
+    <h3>Stock Logs</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Warehouse</th>
+          <th>Supplier</th>
+          <th>Type</th>
+          <th>Qty</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="logsList"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

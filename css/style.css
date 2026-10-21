@@ -1,0 +1,334 @@
+/* 
+  GLOBAL RESET +VARIABLES
+ */
+:root{
+  --blue:#3b82f6;
+  --cyan:#22d3ee;
+  --purple:#a855f7;
+  --pink:#ec4899;
+  --green:#22c55e;
+  --teal:#14b8a6;
+  --red:#ef4444;
+  --dark:#020617;
+}
+
+/*universal*/
+*{ 
+  margin:0;
+  padding: 0;
+  box-sizing:border-box;
+  font-family:"Inter",system-ui,sans-serif;
+}
+
+/* 
+   BODY
+ */
+body{
+  background:#f1f5f9;
+  min-height:100vh; /* viewport height */
+  position:relative;
+}
+
+/* 
+   NAVBAR
+ */
+.nav{
+  background: linear-gradient(90deg,#020617,#0f172a);
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+/* stockflow text */
+
+.nav h2{
+  color: white;
+  font-weight: 700;
+}
+
+/* each nav link */
+
+.nav a{
+  color: #c7d2fe;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/*
+   CONTAINER (-> content ) 
+*/
+.container{
+  max-width: 1200px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+/* 
+   BASE CARD (spacing,corners and layout behav.)
+ */
+.card {
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 
+   INVENTORY
+*/
+#inventorySection {
+  background:linear-gradient(135deg, #eff6ff, #ecfeff);
+  box-shadow:0 20px 50px rgba(59,130,246,0.25);
+}
+
+#inventorySection::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--cyan), transparent);
+  top: -150px;
+  right: -150px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+#inventorySection h3 {
+  color: var(--blue);
+}
+
+/* 
+   ANALYTICS
+*/
+#analyticsSection{
+  background: linear-gradient(135deg, #faf5ff, #fdf2f8);
+  box-shadow: 0 20px 50px rgba(168, 85, 247, 0.25);
+}
+
+#analyticsSection h3{
+  color:var(--purple);
+}
+
+/* 
+   SUPPLIERS
+ */
+#supplierSection{
+  background:linear-gradient(135deg, #ecfdf5, #f0fdfa);
+  box-shadow: 0 20px 50px rgba(20, 184, 166, 0.25);
+}
+
+#supplierSection h3{
+  color: var(--teal);
+}
+
+/* 
+   LOGS
+ */
+#logsSection{
+  background: #020617;
+  color: #e5e7eb;
+  box-shadow:0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+#logsSection{
+  background: #020617;
+  box-shadow:0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/*heading */
+#logsSection h3{
+  color: #e5e7eb;
+}
+
+/*table header*/
+#logsSection th {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+/*table rows */
+#logsSection td {
+  background: #020617;
+  color: #e5e7eb;
+  padding:14px;
+  font-size:14px;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+}
+
+/*row spacing */
+#logsSection .table {
+  border-spacing: 0 12px;
+}
+
+/* buttons inside logs */
+#logsSection button {
+  background: #f1f5f9;
+  color: #020617;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+#logsSection button:hover {
+  background: #fee2e2;
+  color: var(--red);
+}
+
+/* 
+   INPUTS
+ */
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+}
+
+input:focus,  /* focus is for element which is basically on while in use */
+select:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+/* 
+   BUTTONS
+ */
+button{
+  padding:14px;
+  border-radius:10px;
+  border: none;
+  font-weight:600;
+  cursor: pointer;
+}
+
+#addItemBtn {
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  color: white;
+}
+
+/* 
+   TABLE
+*/
+.table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 20px;
+}
+
+.table th{
+  font-size: 12px;
+  text-align: left;
+  color: #64748b;
+}
+
+.table td{
+  background: white;
+  padding: 14px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+/* 
+   LOGIN & REGISTER PAGE 
+*/
+
+/* center page */
+body > header + .container {
+  max-width: 420px;
+  margin: 80px auto;
+}
+
+/* login /register card */
+body > header + .container .card {
+  background: white;
+  padding: 36px;
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+}
+
+/* Title */
+body > header h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 40px;
+  color: #020617;
+}
+
+body > header+ .container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/*inputs spacing */
+body > header + .container input,
+body > header + .container select {
+  margin-bottom: 16px;
+}
+
+/* login/register button */
+body > header + .container button {
+  width: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  color: white;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* Footer text */
+body > header + .container p{
+  text-align: center;
+  margin-top:16px;
+  font-size:14px;
+}
+
+body > header + .container a {
+  color: var(--blue);
+  font-weight:600;
+  text-decoration:none;
+}
+
+/*
+   RELIABILITY FORM
+*/
+#reliabilitySection label{
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+}
+
+#reliabilitySection input,
+#reliabilitySection textarea,
+#reliabilitySection select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  margin-bottom:12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5f5;
+}
+
+#submitReviewBtn {
+  background: linear-gradient(90deg,var(--purple),var(--pink));
+  color: white;
+  width: 100%;
+}
+
+/* 
+   RELIABILITY HISTORY
+*/
+.reliability-history {
+  max-height:320px;
+  overflow-y:auto;
+  margin-top: 12px;
+}
+
+
